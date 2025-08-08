@@ -2,7 +2,7 @@
 import axios from "axios";
 import type { Product, ProductType } from "../types";
 
-const API_URL = "http://localhost:3000/api";
+const API_URL = "https://catalog-gz1c.onrender.com/api";
 
 // Fetches the list of all product types
 export const getProductTypes = async (): Promise<ProductType[]> => {
