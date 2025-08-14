@@ -164,7 +164,7 @@ const CatalogPage: React.FC = () => {
                     <div className="absolute inset-0 bg-indigo-500 opacity-30 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
                     <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-gray-200/50 to-transparent transform -skew-y-3 origin-bottom-left" />
                   </div>
-                  <div className="p-4">
+                  <div className="p-4 z-10">
                     {/* Product Name */}
                     <h3 className="text-xl font-bold mb-2">{product.name}</h3>
                     {/* Product Description */}
