@@ -11,7 +11,6 @@ const CatalogPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch product types on component mount
   useEffect(() => {
     const fetchTypes = async () => {
       try {
@@ -24,7 +23,6 @@ const CatalogPage: React.FC = () => {
     fetchTypes();
   }, []);
 
-  // Fetch products whenever the selected type changes
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
@@ -54,7 +52,6 @@ const CatalogPage: React.FC = () => {
 
   const groupedProducts = groupProductsByType(products);
 
-  // Function to create a URL-friendly slug
   const createSlug = (name: string) => {
     return name
       .toLowerCase()
@@ -104,7 +101,7 @@ const CatalogPage: React.FC = () => {
                       key={product.id}
                       className="bg-white rounded-lg shadow-md overflow-hidden"
                     >
-                      {/* Image with slant and wipe animation */}
+                      {/* Image */}
                       <div className="relative h-48 bg-gray-200 overflow-hidden group">
                         {product.image_urls &&
                           product.image_urls.length > 0 && (
@@ -114,20 +111,18 @@ const CatalogPage: React.FC = () => {
                               className="w-full h-full object-cover absolute"
                             />
                           )}
-                        {/* Overlay with wipe animation */}
-                        <div className="absolute inset-0 bg-indigo-500 opacity-30 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
-                        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-gray-200/50 to-transparent transform -skew-y-3 origin-bottom-left" />
+                        {/* Overlays */}
+                        <div className="absolute inset-0 bg-indigo-500 opacity-30 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 pointer-events-none" />
+                        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-gray-200/50 to-transparent transform -skew-y-3 origin-bottom-left pointer-events-none" />
                       </div>
-                      <div className="p-4">
-                        {/* Product Name */}
+                      {/* Content */}
+                      <div className="p-4 relative z-10">
                         <h3 className="text-xl font-bold mb-2">
                           {product.name}
                         </h3>
-                        {/* Product Description */}
                         <p className="text-gray-600 text-sm mb-4">
                           {product.description}
                         </p>
-                        {/* Details Button - UPDATED */}
                         <Link
                           to={`/products/${product.id}/${createSlug(
                             product.name
@@ -150,7 +145,7 @@ const CatalogPage: React.FC = () => {
                   key={product.id}
                   className="bg-white rounded-lg shadow-md overflow-hidden"
                 >
-                  {/* Image with slant and wipe animation */}
+                  {/* Image */}
                   <div className="relative h-48 bg-gray-200 overflow-hidden group">
                     {product.image_urls && product.image_urls.length > 0 && (
                       <img
@@ -159,22 +154,19 @@ const CatalogPage: React.FC = () => {
                         className="w-full h-full object-cover absolute"
                       />
                     )}
-
-                    {/* Overlay with wipe animation */}
-                    <div className="absolute inset-0 bg-indigo-500 opacity-30 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
-                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-gray-200/50 to-transparent transform -skew-y-3 origin-bottom-left" />
+                    {/* Overlays */}
+                    <div className="absolute inset-0 bg-indigo-500 opacity-30 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-gray-200/50 to-transparent transform -skew-y-3 origin-bottom-left pointer-events-none" />
                   </div>
-                  <div className="p-4 z-10">
-                    {/* Product Name */}
+                  {/* Content */}
+                  <div className="p-4 relative z-10">
                     <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-                    {/* Product Description */}
                     <p className="text-gray-600 text-sm mb-4">
                       {product.description}
                     </p>
-                    {/* Details Button - UPDATED */}
                     <Link
                       to={`/products/${product.id}/${createSlug(product.name)}`}
-                      className="inline-block bg-blue-600 hover:bg-blue-800 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                      className="inline-block bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     >
                       Details
                     </Link>
