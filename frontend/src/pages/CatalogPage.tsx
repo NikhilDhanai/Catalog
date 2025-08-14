@@ -159,7 +159,7 @@ const CatalogPage: React.FC = () => {
                     <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-gray-200/50 to-transparent transform -skew-y-3 origin-bottom-left pointer-events-none" />
                   </div>
                   {/* Content */}
-                  <div className="p-4 relative z-10">
+                  <div className="p-4 relative z-20">
                     <h3 className="text-xl font-bold mb-2">{product.name}</h3>
                     <p className="text-gray-600 text-sm mb-4">
                       {product.description}
