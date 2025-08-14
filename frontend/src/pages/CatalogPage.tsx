@@ -174,7 +174,7 @@ const CatalogPage: React.FC = () => {
                     {/* Details Button - UPDATED */}
                     <Link
                       to={`/products/${product.id}/${createSlug(product.name)}`}
-                      className="inline-block bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                      className="inline-block bg-indigo-600 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     >
                       Details
                     </Link>
